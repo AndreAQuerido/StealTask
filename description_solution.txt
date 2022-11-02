@@ -1,0 +1,31 @@
+My Solution:
+
+I choose to use relational database cause is what im used to it, not really confortable with elasticsearch.
+
+SQLModel is the library that i chose to interact with the database it's kinda new but is a wrapper of the sqlalchemy and pydantic 
+so i thought it was a nice fit and i used sqlite cause is easier to test in any machine. 
+
+
+Listing trades and Single trade:
+for the first part of the test i create the app and the models (guinding by the schema u provided) then created a simple endpoint 
+to return all the trades and another to return the trades by id. 
+Used the ApiRouter cause if in the future we wanted to created endpoints with different prefix would be easier. 
+
+
+Searching trades and Advanced filtering:
+For this part i had to update the get_trades endpoint so it would accept query strings the filtering part was trick, 
+and the solution that i came was instead of making alot of request to the db, i would get all the trades and then filter (function filter does that). 
+Maybe with elasticsearch would b faster.
+
+Bonus Point:
+implement support for pagination with offset and limit as query strings and also added sorting with the format (+/- i_id etc)
+for trader, instrument_id, instrument_name just cause personal preference only.
+
+PS: 
+In main i also created an fucntion to populate the db with mock data.
+Also added file howto.txt and requirements.txt
+
+
+
+
+

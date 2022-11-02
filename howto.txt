@@ -1,0 +1,14 @@
+1. run 'alembic init migrations', this creates folder 'migrations' (if using async db, run 'alembic init -t async migrations')
+2. in migrations/env.py
+    - add:
+    from sqlmodel import SQLModel
+    from StealApp.schema import *
+    - initialize:
+     # add your model's MetaData object here
+     # for 'autogenerate' support
+     target_metadata = SQLModel.metadata
+     - initialize:
+     config.set_main_option("sqlalchemy.url", "sqlite://./steal.db")
+3. In script.py.mako 'import sqlmodel' just above '${imports if imports else ""}'
+4. create initial/subsequent migration file: 'alembic revision --autogenerate -m <message>'
+5. execute migration: 'alembic upgrade head'
